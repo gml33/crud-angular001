@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokemonesService } from './servicios/pokemones.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rangular';
+
+  constructor(
+    private pokemonesService:PokemonesService
+  ){
+this.pokemonesService.getPokemones().subscribe((resp:any)=>{
+  this.pokemonesService = resp
+})
+  }
 }
